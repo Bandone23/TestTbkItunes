@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">TestTbkItunes</string>
+    <string name="toast_no_connection">Tienes Conexion a Internet Internet?</string>
+    <string name="toast_connection_failure">Fallo de conexión</string>
+    <string name="toast_unexpected_failure">Falla inesperada</string>
+
+    <!-- MainActivity -->
+    <string name="nav_search">Descubrir</string>
+    <!-- SearchFragment -->
+    <string name="hint_search">Buscar por Artista…</string>
+    <string name="text_search_empty">No se encontraron resultados!</string>
+    <string name="text_search_no_results">Parece que no pudimos encontrar nada; (</string>
+
+    <!-- ArtistActivity -->
+    <string name="text_artist_no_albums">Parece que no pudimos encontrar ningún álbum; (</string>
+    <string name="text_album_genre_year">%1$s • %2$s</string>
+
 </resources>

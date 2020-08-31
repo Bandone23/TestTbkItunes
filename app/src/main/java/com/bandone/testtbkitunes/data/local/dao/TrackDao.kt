@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.bandone.testtbkitunes.data.local.database.TrackEntity
+import com.bandone.testtbkitunes.data.local.model.TrackEntity
 
 @Dao
 interface TrackDao {

@@ -1,4 +1,4 @@
-package com.bandone.testtbkitunes.data.local.database
+package com.bandone.testtbkitunes.data.local.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

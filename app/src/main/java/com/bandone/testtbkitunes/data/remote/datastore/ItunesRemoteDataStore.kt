@@ -5,44 +5,53 @@ import com.bandone.testtbkitunes.data.repository.ItunesDataStore
 import com.bandone.testtbkitunes.domain.model.Album
 import com.bandone.testtbkitunes.domain.model.Artist
 import com.bandone.testtbkitunes.domain.model.Track
+import com.bandone.testtbkitunes.util.extensions.getOrThrow
+import com.bandone.testtbkitunes.util.mappers.toAlbum
+import com.bandone.testtbkitunes.util.mappers.toArtist
+import com.bandone.testtbkitunes.util.mappers.toTrack
 
 open class ItunesRemoteDataStore(
     private val itunesRemoteApi: ItunesRemoteApi
 
 ):ItunesDataStore {
     override suspend fun searchArtists(term: String): List<Artist> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun getLikedArtists(): List<Artist> {
-        TODO("Not yet implemented")
+        val response = itunesRemoteApi.searchArtists(term).getOrThrow()
+        return response.results.map { it.toArtist() }
     }
 
     override suspend fun lookupAlbums(artistId: Long): List<Album> {
-        TODO("Not yet implemented")
+        val response = itunesRemoteApi.lookupAlbums(artistId).getOrThrow()
+
+        return response.results.drop(1).map { it.toAlbum() }
     }
 
     override suspend fun lookupTracks(albumId: Long): List<Track> {
-        TODO("Not yet implemented")
+        val response = itunesRemoteApi.lookupTracks(albumId).getOrThrow()
+
+        return response.results.drop(1).map { it.toTrack() }
+    }
+
+    override suspend fun getLikedArtists(): List<Artist> {
+        throw NotImplementedError()
     }
 
     override suspend fun saveArtistsSearch(artists: List<Artist>, queryString: String) {
-        TODO("Not yet implemented")
+        throw NotImplementedError()
     }
 
     override suspend fun saveAlbumsLookup(albums: List<Album>) {
-        TODO("Not yet implemented")
+        throw NotImplementedError()
     }
 
     override suspend fun saveTracksLookup(tracks: List<Track>) {
-        TODO("Not yet implemented")
+        throw NotImplementedError()
     }
 
     override suspend fun likeArtist(artistId: Long) {
-        TODO("Not yet implemented")
+        throw NotImplementedError()
     }
 
     override suspend fun unlikeArtist(artistId: Long) {
-        TODO("Not yet implemented")
+        throw NotImplementedError()
     }
 }
